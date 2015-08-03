@@ -9,6 +9,7 @@ public class SkillsManager {
 	public ISkill selectedSkill = null;
 
 	//TODO: Add standard skill for Attack1
+	//TODO: Add function to easily find an open skill slot
 
 	//Sets the selected skill for Attack2
 	public void selectSkill()

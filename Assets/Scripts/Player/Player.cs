@@ -14,8 +14,6 @@ public class Player : MonoBehaviour {
 		stats = new PlayerStats ();
 		skills = new SkillsManager ();
 		controls = new KeyboardController (this);
-
-		skills.SetSkill (new Fireball (this), 0);
 	}
 
 	void Update () 

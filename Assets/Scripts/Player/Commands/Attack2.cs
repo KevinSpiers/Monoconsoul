@@ -15,7 +15,9 @@ public class Attack2 : ICommand {
 
 	public void KeyPressed()
 	{
-
+		if (!Game.GamePaused) {
+			//TODO: Add Skills attack
+		}
 	}
 
 }

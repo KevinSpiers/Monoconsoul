@@ -18,6 +18,7 @@ public class KeyboardController : IController {
 		controlList.Add (KeyCode.Tab, new CycleSkill (_player));
 		controlList.Add (KeyCode.Mouse0, new Attack1 (_player));
 		controlList.Add (KeyCode.Mouse1, new Attack2 (_player));
+		controlList.Add (KeyCode.Escape, new PauseGame (_player));
 	}
 
 	public void Execute () 

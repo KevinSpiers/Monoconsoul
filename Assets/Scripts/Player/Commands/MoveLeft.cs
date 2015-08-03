@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MoveRight : ICommand {
+public class MoveLeft : ICommand {
 	Player player;
 	Rigidbody2D rigidbody;
-	public MoveRight(Player _player)
+	public MoveLeft(Player _player)
 	{
 		player = _player;
 		rigidbody = player.GetComponent<Rigidbody2D> ();
@@ -17,6 +17,8 @@ public class MoveRight : ICommand {
 
 	public void KeyPressed()
 	{
-		rigidbody.velocity = new Vector2(Time.fixedDeltaTime * player.stats.MoveSpeed,rigidbody.velocity.y);
+		if (!Game.GamePaused) {
+			rigidbody.velocity = new Vector2 (-Time.fixedDeltaTime * player.stats.MoveSpeed, rigidbody.velocity.y);
+		}
 	}
 }

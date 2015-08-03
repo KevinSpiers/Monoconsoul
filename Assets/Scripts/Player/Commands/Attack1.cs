@@ -10,15 +10,15 @@ public class Attack1 : ICommand {
 
 	public void KeyDown()
 	{
-		//if (player.skills.selectedSkill != null) {
-		//	player.skills.selectedSkill.UseSkill ();
-		//}
+		//Do Nothing
 	}
 
 	public void KeyPressed()
 	{
-		if (player.skills.selectedSkill != null) {
-			player.skills.selectedSkill.UseSkill ();
+		if (!Game.GamePaused) {
+			if (player.skills.selectedSkill != null) {
+				player.skills.selectedSkill.UseSkill ();
+			}
 		}
 	}
 

@@ -17,6 +17,8 @@ public class MoveUp : ICommand {
 
 	public void KeyPressed()
 	{
-		rigidbody.velocity = new Vector2(rigidbody.velocity.x,Time.fixedDeltaTime * player.stats.MoveSpeed);
+		if (!Game.GamePaused) {
+			rigidbody.velocity = new Vector2 (rigidbody.velocity.x, Time.fixedDeltaTime * player.stats.MoveSpeed);
+		}
 	}
 }

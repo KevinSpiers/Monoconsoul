@@ -11,7 +11,9 @@ public class CycleSkill : ICommand {
 
 	public void KeyDown()
 	{
-		player.skills.selectSkill ();
+		if (!Game.GamePaused) {
+			player.skills.selectSkill ();
+		}
 	}
 
 	public void KeyPressed()
