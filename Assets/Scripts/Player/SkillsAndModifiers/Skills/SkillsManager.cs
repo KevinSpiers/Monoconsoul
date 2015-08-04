@@ -2,14 +2,18 @@
 using System.Collections;
 
 public class SkillsManager {
+
+	public bool canPickUpSkill = false;
+	public bool isPickingUpSkill = false;
+
 	public static int skillLength = 3;
 	private ISkill[] skill = new ISkill[skillLength];
 
-	private int selectedSkillPos = 0;
+	public int selectedSkillPos = 0;
 	public ISkill selectedSkill = null;
 
 	//TODO: Add standard skill for Attack1
-	//TODO: Add function to easily find an open skill slot
+	//TODO: Add function to check open spot starting with the current selected skill position
 
 	//Sets the selected skill for Attack2
 	public void selectSkill()

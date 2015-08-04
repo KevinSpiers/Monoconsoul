@@ -40,7 +40,7 @@ public class Fireball : ISkill {
 		if(mouseScreenDif.x == 0 && mouseScreenDif.y == 0){
 			mouseScreenDif = Vector2.up;
 		}
-		bulletScript.StartLocation = player.gameObject.transform.position + (Vector3)mouseScreenDif * 1.5f;
+		bulletScript.StartLocation = player.gameObject.transform.position + (Vector3)mouseScreenDif*.5f;
 		bulletScript.Direction = mouseScreenDif;
 		bulletScript.Speed = player.stats.AttackSpeed;
 		bulletScript.MaxDistanceCovered = player.stats.AttackRange;

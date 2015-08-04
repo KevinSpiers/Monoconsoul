@@ -32,5 +32,4 @@ public class PlayerStats {
 		AttackDamage = 1;
 		MoveSpeed = 250;
 	}
-
 }

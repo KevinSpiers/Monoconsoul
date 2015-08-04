@@ -2,15 +2,36 @@
 using System.Collections;
 
 public class FireballPickUp : MonoBehaviour,ISkillPickUp {
-	//TODO: Add more useful stuff here
+
+	Player player;
+
+	void OnTriggerStay2D(Collider2D other)
+	{
+		if (player != null && other.CompareTag ("Player")) {
+			player.skills.canPickUpSkill = true;
+			if (player.skills.isPickingUpSkill) {
+
+				//TODO: Add functionality to check open spot starting with the current selected skill position
+
+				player.skills.SetSkill (new Fireball (player), player.skills.selectedSkillPos);
+				player.skills.isPickingUpSkill = false;
+				player.skills.canPickUpSkill = false;
+				Destroy (this.gameObject);
+			}
+		}
+	}
+
+	void OnTriggerExit2D(Collider2D other)
+	{
+		if (player != null && other.CompareTag ("Player")) {
+			player.skills.canPickUpSkill = false;
+		}
+	}
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.CompareTag ("Player")) {
-			Player player = other.GetComponent<Player>();
-			//TODO: Add functionality to check open spot
-			player.skills.SetSkill(new Fireball(player),0);
-			Destroy(this.gameObject);
+			player = other.GetComponent<Player> ();
 		}
 	}
 }
