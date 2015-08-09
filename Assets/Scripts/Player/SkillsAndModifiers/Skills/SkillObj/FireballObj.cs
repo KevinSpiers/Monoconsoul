@@ -15,14 +15,16 @@ public class FireballObj : MonoBehaviour, ISkillObj {
 	{
 		this.gameObject.transform.position = StartLocation;
 		Rigidbody2D rigidbody = this.gameObject.GetComponent<Rigidbody2D> ();
-		rigidbody.AddForce (Direction*Speed * 300);
+		rigidbody.AddForce (Direction * Speed * 300);
 		distanceCovered = 0f;
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.CompareTag ("Enemy")) {
-			//Attack Enemy
+		if (!other.CompareTag ("Player") && !other.CompareTag("Drop") && !other.CompareTag("Attack")) {
+			if(other.CompareTag("Enemy")){
+				//Attack Enemy
+			}
 			Destroy(this.gameObject);
 		}
 	}

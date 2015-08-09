@@ -13,7 +13,8 @@ public class FireballPickUp : MonoBehaviour,ISkillPickUp {
 
 				//TODO: Add functionality to check open spot starting with the current selected skill position
 
-				player.skills.SetSkill (new Fireball (player), player.skills.selectedSkillPos);
+				//player.skills.SetSkill (new Fireball (player), player.skills.selectedSkillPos);
+				player.skills.SetMainSkill(new Fireball(player));
 				player.skills.isPickingUpSkill = false;
 				player.skills.canPickUpSkill = false;
 				Destroy (this.gameObject);
@@ -25,13 +26,17 @@ public class FireballPickUp : MonoBehaviour,ISkillPickUp {
 	{
 		if (player != null && other.CompareTag ("Player")) {
 			player.skills.canPickUpSkill = false;
+			player.skills.isPickingUpSkill = false;
 		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.CompareTag ("Player")) {
-			player = other.GetComponent<Player> ();
+			if (player == null) {
+				player = other.GetComponent<Player> ();
+			}
+			player.skills.canPickUpSkill = true;
 		}
 	}
 }

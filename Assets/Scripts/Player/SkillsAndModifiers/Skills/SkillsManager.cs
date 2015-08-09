@@ -12,9 +12,25 @@ public class SkillsManager {
 	public int selectedSkillPos = 0;
 	public ISkill selectedSkill = null;
 
+	public ISkill mainSkill = null;
+
 	//TODO: Add standard skill for Attack1
 	//TODO: Add function to check open spot starting with the current selected skill position
 
+
+	public ISkill CheckMainSkill()
+	{
+		return mainSkill;
+	}
+
+	public ISkill SetMainSkill(ISkill _skill)
+	{
+		ISkill oldSkill = mainSkill;
+		mainSkill = _skill;
+
+		return oldSkill;
+	}
+	
 	//Sets the selected skill for Attack2
 	public void selectSkill()
 	{
@@ -56,6 +72,9 @@ public class SkillsManager {
 			if(skill[i] != null){
 				skill[i].skillCoolDown.CoolDown();
 			}
+		}
+		if (mainSkill != null) {
+			mainSkill.skillCoolDown.CoolDown ();
 		}
 	}
 }

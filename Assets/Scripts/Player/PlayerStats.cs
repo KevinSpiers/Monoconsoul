@@ -27,7 +27,7 @@ public class PlayerStats {
 		Health = MaxHealth;
 		Defense = 0;
 		AttackSpeed = 1;
-		AttackFrequency = .1f;
+		AttackFrequency = 1f;
 		AttackRange = 10;
 		AttackDamage = 1;
 		MoveSpeed = 250;

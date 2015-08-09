@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.EventSystems;
 public class Attack2 : ICommand {
 	Player player;
 	public Attack2(Player _player)
@@ -15,8 +15,10 @@ public class Attack2 : ICommand {
 
 	public void KeyPressed()
 	{
-		if (!Game.GamePaused) {
-			//TODO: Add Skills attack
+		if (!Game.GamePaused && !EventSystem.current.IsPointerOverGameObject()) {
+			if (player.skills.selectedSkill != null) {
+				player.skills.selectedSkill.UseSkill ();
+			}
 		}
 	}
 

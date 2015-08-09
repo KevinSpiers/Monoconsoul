@@ -16,8 +16,8 @@ public class Attack1 : ICommand {
 	public void KeyPressed()
 	{
 		if (!Game.GamePaused && !EventSystem.current.IsPointerOverGameObject()) {
-			if (player.skills.selectedSkill != null) {
-				player.skills.selectedSkill.UseSkill ();
+			if (player.skills.mainSkill != null) {
+				player.skills.mainSkill.UseSkill ();
 			}
 		}
 	}

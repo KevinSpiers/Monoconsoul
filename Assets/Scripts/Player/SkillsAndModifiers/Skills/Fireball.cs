@@ -11,6 +11,7 @@ public class Fireball : ISkill {
 			return skd;
 		} 
 	}
+
 	private ModifiersManager mm;
 	public ModifiersManager modifierManager
 	{ 
@@ -19,6 +20,7 @@ public class Fireball : ISkill {
 			return mm;
 		}
 	}
+
 	public Fireball(Player _player)
 	{
 		player = _player;
