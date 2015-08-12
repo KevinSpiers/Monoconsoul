@@ -16,7 +16,7 @@ public class PickupItem : ICommand {
 		}
 	}
 	
-	public void KeyPressed()
+	public void KeyHeld()
 	{
 		//Do Nothing
 	}

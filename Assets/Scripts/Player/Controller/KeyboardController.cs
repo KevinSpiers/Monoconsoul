@@ -21,6 +21,7 @@ public class KeyboardController : IController {
 		controlList.Add (KeyCode.Escape, new OptionsMenu (_player));
 		controlList.Add (KeyCode.C, new StatsMenu (_player));
 		controlList.Add (KeyCode.E, new PickupItem (_player));
+		controlList.Add (KeyCode.F, new FullScreen (_player));
 	}
 
 	public void Execute () 
@@ -42,7 +43,7 @@ public class KeyboardController : IController {
 				controlList.TryGetValue(key,out cmd);
 				if(cmd != null)
 				{
-					cmd.KeyPressed();
+					cmd.KeyHeld();
 				}
 			}
 			else

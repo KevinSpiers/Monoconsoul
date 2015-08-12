@@ -13,7 +13,7 @@ public class Attack2 : ICommand {
 		//Do Nothing
 	}
 
-	public void KeyPressed()
+	public void KeyHeld()
 	{
 		if (!Game.GamePaused && !EventSystem.current.IsPointerOverGameObject()) {
 			if (player.skills.selectedSkill != null) {

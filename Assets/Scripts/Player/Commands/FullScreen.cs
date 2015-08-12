@@ -1,21 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CycleSkill : ICommand {
+public class FullScreen : ICommand {
 
 	Player player;
-	public CycleSkill(Player _player)
+	public FullScreen(Player _player)
 	{
 		player = _player;
 	}
-
+	
 	public void KeyDown()
 	{
-		if (!Game.GamePaused) {
-			player.skills.selectSkill ();
-		}
+		Game.ToggleFullScreen ();
 	}
-
+	
 	public void KeyHeld()
 	{
 		//Do Nothing

@@ -4,12 +4,14 @@ using System.Collections;
 public class ButtonFunctions : MonoBehaviour {
 
 	private Player player;
+
+	public void Start()
+	{
+		player = GameObject.FindObjectOfType<Player> ();
+	}
+
 	private void RemoveFocus()
 	{
-		//Removes focus from the button to prevent unwanted behaviour
-		if (player == null) {
-			player = GameObject.FindObjectOfType<Player> ();
-		}
 		UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject (player.gameObject);
 	}
 	
@@ -32,6 +34,39 @@ public class ButtonFunctions : MonoBehaviour {
 
 		RemoveFocus ();
 	}
+
+	public void CharacterMainSkillPressed()
+	{
+		if (!Game.GamePaused && player.skills.mainSkill != null) {
+			player.skills.mainSkill.UseSkill ();
+		}
+		RemoveFocus ();
+	}
+
+	public void CharacterSkill1Pressed()
+	{
+		if (!Game.GamePaused && player.skills.CheckSkill(0) != null) {
+			player.skills.CheckSkill (0).UseSkill ();
+		}
+		RemoveFocus ();
+	}
+
+	public void CharacterSkill2Pressed()
+	{
+		if (!Game.GamePaused && player.skills.CheckSkill(1) != null) {
+			player.skills.CheckSkill (1).UseSkill ();
+		}
+		RemoveFocus ();
+	}
+
+	public void CharacterSkill3Pressed()
+	{
+		if (!Game.GamePaused && player.skills.CheckSkill(2) != null) {
+			player.skills.CheckSkill (2).UseSkill ();
+		}
+		RemoveFocus ();
+	}
+
 
 
 }

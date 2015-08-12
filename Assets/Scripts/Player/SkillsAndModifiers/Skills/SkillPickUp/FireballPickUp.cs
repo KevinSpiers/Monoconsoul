@@ -14,7 +14,7 @@ public class FireballPickUp : MonoBehaviour,ISkillPickUp {
 				//TODO: Add functionality to check open spot starting with the current selected skill position
 
 				//player.skills.SetSkill (new Fireball (player), player.skills.selectedSkillPos);
-				player.skills.SetMainSkill(new Fireball(player));
+				player.skills.SetSkill(new Fireball(player),0);
 				player.skills.isPickingUpSkill = false;
 				player.skills.canPickUpSkill = false;
 				Destroy (this.gameObject);

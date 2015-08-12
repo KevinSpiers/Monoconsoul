@@ -9,7 +9,7 @@ public class OptionsMenu : ICommand {
 		player = _player;
 	}
 	
-	public void KeyPressed()
+	public void KeyHeld()
 	{
 		
 	}

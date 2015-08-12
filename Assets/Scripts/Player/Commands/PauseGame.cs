@@ -9,7 +9,7 @@ public class PauseGame : ICommand {
 		player = _player;
 	}
 
-	public void KeyPressed()
+	public void KeyHeld()
 	{
 
 	}

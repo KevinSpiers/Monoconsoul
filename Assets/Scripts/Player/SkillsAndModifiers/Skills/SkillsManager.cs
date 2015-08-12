@@ -12,21 +12,20 @@ public class SkillsManager {
 	public int selectedSkillPos = 0;
 	public ISkill selectedSkill = null;
 
-	public ISkill mainSkill = null;
-
-	//TODO: Add standard skill for Attack1
+	public IMainSkill mainSkill = null;
+	
 	//TODO: Add function to check open spot starting with the current selected skill position
 
 
-	public ISkill CheckMainSkill()
+	public IMainSkill CheckMainSkill()
 	{
 		return mainSkill;
 	}
 
-	public ISkill SetMainSkill(ISkill _skill)
+	public IMainSkill SetMainSkill(IMainSkill _mainSkill)
 	{
-		ISkill oldSkill = mainSkill;
-		mainSkill = _skill;
+		IMainSkill oldSkill = mainSkill;
+		mainSkill = _mainSkill;
 
 		return oldSkill;
 	}

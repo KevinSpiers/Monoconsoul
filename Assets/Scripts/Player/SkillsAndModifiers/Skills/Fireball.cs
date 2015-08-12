@@ -37,6 +37,7 @@ public class Fireball : ISkill {
 		FireballObj bulletScript = bullet.GetComponent<FireballObj>();
 
 		//Set initilization values
+		//TODO:Fix bug that causes wrong values when in fullscreen mode
 		Vector2 mouseScreenDif = (Input.mousePosition - Camera.main.WorldToScreenPoint(player.gameObject.transform.position));
 		mouseScreenDif.Normalize();
 		if(mouseScreenDif.x == 0 && mouseScreenDif.y == 0){

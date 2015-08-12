@@ -2,9 +2,36 @@
 using System.Collections;
 
 public class Game {
+	
+	private static bool isFullScreen = false;
+	public static void ToggleFullScreen()
+	{
+		isFullScreen = !isFullScreen;
+		if (isFullScreen) {
+			Screen.fullScreen = true;
+		} else {
+			Screen.fullScreen = false;
+		}
+
+		if (Screen.fullScreen == false) {
+			ChangeResolution();
+		}
+	}
+
+	private static int width = 1280;
+	private static int height = 720;
+	public static void ChangeResolution()
+	{
+		Screen.SetResolution (width, height, isFullScreen);
+	}
+	public static void ChangeResolution(int _width, int _height)
+	{
+		width = _width;
+		height = _height;
+		Screen.SetResolution (_width, _height, isFullScreen);
+	}
 
 	public static bool GamePaused = false;
-
 	public static void TogglePausedGame()
 	{
 		GamePaused = !GamePaused;

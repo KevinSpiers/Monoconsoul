@@ -1,6 +1,6 @@
 ﻿
 public interface ICommand
 {
-	void KeyPressed();
+	void KeyHeld();
 	void KeyDown();
 }

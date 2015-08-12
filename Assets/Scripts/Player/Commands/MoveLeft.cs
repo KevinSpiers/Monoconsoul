@@ -15,7 +15,7 @@ public class MoveLeft : ICommand {
 		//Do Nothing
 	}
 
-	public void KeyPressed()
+	public void KeyHeld()
 	{
 		if (!Game.GamePaused) {
 			rigidbody.velocity = new Vector2 (-Time.fixedDeltaTime * player.stats.MoveSpeed, rigidbody.velocity.y);
