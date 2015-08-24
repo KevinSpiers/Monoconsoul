@@ -18,8 +18,8 @@ public class Game {
 		}
 	}
 
-	private static int width = 1280;
-	private static int height = 720;
+	private static int width = 1920;
+	private static int height = 1080;
 	public static void ChangeResolution()
 	{
 		Screen.SetResolution (width, height, isFullScreen);

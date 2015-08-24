@@ -6,8 +6,10 @@ public class Player : MonoBehaviour {
 	public PlayerStats stats;
 	public IPlayerState playerState;
 	public SkillsManager skills;
-	public ModifiersManager modifiers;
 	IController controls;
+
+	public bool canPickUp = false;
+	public bool isPickingUp = false;
 
 	void Start () 
 	{

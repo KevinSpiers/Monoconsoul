@@ -4,12 +4,12 @@ using System.Collections;
 public class ButtonFunctions : MonoBehaviour {
 
 	private Player player;
-
-	public void Start()
+	private void SetPlayer()
 	{
-		player = GameObject.FindObjectOfType<Player> ();
+		if (player == null || player.gameObject == null) {
+			player = GameObject.FindObjectOfType<Player> ();
+		}
 	}
-
 	private void RemoveFocus()
 	{
 		UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject (player.gameObject);
@@ -17,6 +17,8 @@ public class ButtonFunctions : MonoBehaviour {
 	
 	public void OptionsMenu()
 	{
+		SetPlayer ();
+
 		Game.TogglePausedGame();
 
 		GameObject optionsMenu = Game.GetOptionsMenu ();
@@ -27,7 +29,7 @@ public class ButtonFunctions : MonoBehaviour {
 
 	public void CharacterStatsMenu()
 	{
-		//Game.TogglePausedGame ();
+		SetPlayer ();
 
 		GameObject statsMenu = Game.GetStatsMenu ();
 		statsMenu.SetActive (!statsMenu.activeSelf);
@@ -35,35 +37,47 @@ public class ButtonFunctions : MonoBehaviour {
 		RemoveFocus ();
 	}
 
-	public void CharacterMainSkillPressed()
+	public void CharacterWeaponPressed()
 	{
+		SetPlayer ();
+
 		if (!Game.GamePaused && player.skills.mainSkill != null) {
 			player.skills.mainSkill.UseSkill ();
 		}
+
 		RemoveFocus ();
 	}
 
 	public void CharacterSkill1Pressed()
 	{
+		SetPlayer ();
+
 		if (!Game.GamePaused && player.skills.CheckSkill(0) != null) {
 			player.skills.CheckSkill (0).UseSkill ();
 		}
+
 		RemoveFocus ();
 	}
 
 	public void CharacterSkill2Pressed()
 	{
+		SetPlayer ();
+
 		if (!Game.GamePaused && player.skills.CheckSkill(1) != null) {
 			player.skills.CheckSkill (1).UseSkill ();
 		}
+
 		RemoveFocus ();
 	}
 
 	public void CharacterSkill3Pressed()
 	{
+		SetPlayer ();
+
 		if (!Game.GamePaused && player.skills.CheckSkill(2) != null) {
 			player.skills.CheckSkill (2).UseSkill ();
 		}
+
 		RemoveFocus ();
 	}
 

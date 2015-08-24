@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class KeyboardController : IController {
 	private Dictionary<KeyCode,ICommand> controlList;
+	private Dictionary<string,IACommand> axisControlList;
 	private Player player;
 
 	public KeyboardController(Player _player)
@@ -22,6 +23,9 @@ public class KeyboardController : IController {
 		controlList.Add (KeyCode.C, new StatsMenu (_player));
 		controlList.Add (KeyCode.E, new PickupItem (_player));
 		controlList.Add (KeyCode.F, new FullScreen (_player));
+
+		axisControlList = new Dictionary<string,IACommand> ();
+		axisControlList.Add ("Mouse ScrollWheel", new SWCycleSkill (_player));
 	}
 
 	public void Execute () 
@@ -54,5 +58,26 @@ public class KeyboardController : IController {
 				rigidbody.velocity = velocity;
 			}
 		}
+
+		foreach (string str in axisControlList.Keys) 
+		{
+			float num = Input.GetAxisRaw(str);
+			if(num > 0f){
+				IACommand cmd = null;
+				axisControlList.TryGetValue(str,out cmd);
+				if(cmd != null)
+				{
+					cmd.PositiveAxis(num);
+				}
+			}else if(num < 0f){
+				IACommand cmd = null;
+				axisControlList.TryGetValue(str,out cmd);
+				if(cmd != null)
+				{
+					cmd.NegativeAxis(num);
+				}
+			}
+		}
+
 	}
 }
