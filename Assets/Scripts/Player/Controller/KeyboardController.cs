@@ -23,6 +23,7 @@ public class KeyboardController : IController {
 		controlList.Add (KeyCode.C, new StatsMenu (_player));
 		controlList.Add (KeyCode.E, new PickupItem (_player));
 		controlList.Add (KeyCode.F, new FullScreen (_player));
+		controlList.Add (KeyCode.Space, new Defend (_player));
 
 		axisControlList = new Dictionary<string,IACommand> ();
 		axisControlList.Add ("Mouse ScrollWheel", new SWCycleSkill (_player));

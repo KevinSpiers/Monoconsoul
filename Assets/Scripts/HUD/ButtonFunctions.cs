@@ -41,13 +41,25 @@ public class ButtonFunctions : MonoBehaviour {
 	{
 		SetPlayer ();
 
-		if (!Game.GamePaused && player.skills.mainSkill != null) {
-			player.skills.mainSkill.UseSkill ();
+		if (!Game.GamePaused && player.items.Weapon != null) {
+			player.items.Weapon.UseWeapon ();
 		}
 
 		RemoveFocus ();
 	}
 
+	public void CharacterArmorPressed()
+	{
+		SetPlayer ();
+		
+		if (!Game.GamePaused && player.items.Armor != null) {
+			player.items.Armor.UseArmor ();
+		}
+		
+		RemoveFocus ();
+	}
+
+	/*Skills Start Here*/
 	public void CharacterSkill1Pressed()
 	{
 		SetPlayer ();
@@ -81,6 +93,50 @@ public class ButtonFunctions : MonoBehaviour {
 		RemoveFocus ();
 	}
 
+	/*Items Start Here*/
+	public void CharacterItem1Pressed()
+	{
+		SetPlayer ();
+		
+		if (!Game.GamePaused && player.items.CheckItem(0) != null) {
+			player.items.CheckItem(0).UseItem();
+		}
+		
+		RemoveFocus ();
+	}
+
+	public void CharacterItem2Pressed()
+	{
+		SetPlayer ();
+		
+		if (!Game.GamePaused && player.items.CheckItem(1) != null) {
+			player.items.CheckItem(1).UseItem();
+		}
+		
+		RemoveFocus ();
+	}
+
+	public void CharacterItem3Pressed()
+	{
+		SetPlayer ();
+		
+		if (!Game.GamePaused && player.items.CheckItem(3) != null) {
+			player.items.CheckItem(3).UseItem();
+		}
+		
+		RemoveFocus ();
+	}
+
+	public void CharacterItem4Pressed()
+	{
+		SetPlayer ();
+		
+		if (!Game.GamePaused && player.items.CheckItem(4) != null) {
+			player.items.CheckItem(4).UseItem();
+		}
+		
+		RemoveFocus ();
+	}
 
 
 }

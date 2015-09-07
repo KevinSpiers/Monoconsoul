@@ -2,25 +2,25 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 
-public class Attack1 : ICommand {
+public class Defend : ICommand {
+
 	Player player;
-	public Attack1(Player _player)
+	public Defend(Player _player)
 	{
 		player = _player;
 	}
-
+	
 	public void KeyDown()
 	{
-		//Do Nothing
-	}
-
-	public void KeyHeld()
-	{
 		if (!Game.GamePaused && !EventSystem.current.IsPointerOverGameObject()) {
-			if (player.items.Weapon != null) {
-				player.items.Weapon.UseWeapon ();
+			if (player.items.Armor != null) {
+				player.items.Armor.UseArmor ();
 			}
 		}
 	}
-
+	
+	public void KeyHeld()
+	{
+		//Do Nothing
+	}
 }

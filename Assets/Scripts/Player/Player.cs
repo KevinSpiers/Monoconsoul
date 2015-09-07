@@ -6,14 +6,13 @@ public class Player : MonoBehaviour {
 	public PlayerStats stats;
 	public IPlayerState playerState;
 	public SkillsManager skills;
+	public ItemsManager items;
 	IController controls;
-
-	public bool canPickUp = false;
-	public bool isPickingUp = false;
 
 	void Start () 
 	{
 		stats = new PlayerStats ();
+		items = new ItemsManager ();
 		skills = new SkillsManager ();
 		controls = new KeyboardController (this);
 	}
@@ -23,4 +22,5 @@ public class Player : MonoBehaviour {
 		controls.Execute ();
 		skills.CoolDown ();
 	}
+
 }

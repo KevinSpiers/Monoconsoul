@@ -2,5 +2,5 @@
 public interface Iweapon
 {
 	CoolDownTimer weaponCoolDown{ get; }
-	void UseWeaponl();
+	void UseWeapon();
 }

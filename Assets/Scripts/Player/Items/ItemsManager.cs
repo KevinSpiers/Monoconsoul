@@ -1,22 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ItemsManager : MonoBehaviour {
+public class ItemsManager {
 
-	public static int itemLength = 3;
+	public static int itemLength = 4;
 	private Iitem[] item = new Iitem[itemLength];
 
 	private Iarmor armor = null;
-	private Iweapon weapon = null;
-
-	public Iarmor CheckArmor()
-	{
-		return armor;
+	public Iarmor Armor
+	{ 
+		get
+		{
+			return armor;
+		}
 	}
-
-	public Iweapon CheckWeapon()
-	{
-		return weapon;
+	private Iweapon weapon = null;
+	public Iweapon Weapon
+	{ 
+		get
+		{
+			return weapon;
+		}
 	}
 
 	public Iarmor SetArmor(Iarmor _armor)
@@ -43,7 +47,7 @@ public class ItemsManager : MonoBehaviour {
 		}
 	}
 	
-	//Sets the Items. Useful for when picking up or moving Items and modifiers.
+	//Sets the Items. Useful for when picking up or moving Items.
 	public Iitem SetItem(Iitem _item, int _position)
 	{
 		if (_position >= 0 && _position < itemLength) {

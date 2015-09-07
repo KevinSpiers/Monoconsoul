@@ -9,37 +9,50 @@ public class SkillsManager {
 	public int selectedSkillPos = 0;
 	public ISkill selectedSkill = null;
 
-	public IMainSkill mainSkill = null;
-	
-	//TODO: Add function to check open spot starting with the current selected skill position
-	
-	public IMainSkill CheckMainSkill()
+	private bool CheckIfHasSkill()
 	{
-		return mainSkill;
+		for (int i = 0; i < skillLength; i++) {
+			if(skill[i] != null)
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
-	public IMainSkill SetMainSkill(IMainSkill _mainSkill)
+	public int NextOpenSkillSlotPos()
 	{
-		IMainSkill oldSkill = mainSkill;
-		mainSkill = _mainSkill;
-
-		return oldSkill;
+		for (int i = 0; i < skillLength; i++) {
+			if(skill[i] == null)
+			{
+				return i;
+			}
+		}
+		return -1;
 	}
-	
+
 	//Sets the selected skill for Attack2
 	public void SelectSkill()
 	{
-		selectedSkillPos = (selectedSkillPos + 1) % skillLength;
-		selectedSkill = skill [selectedSkillPos];
+		if (CheckIfHasSkill ()) {
+			do {
+				selectedSkillPos = (selectedSkillPos + 1) % skillLength;
+				selectedSkill = skill [selectedSkillPos];
+			} while(selectedSkill == null);
+		}
 	}
 
 	public void RevSelectSkill()
 	{
-		selectedSkillPos -= 1;
-		if (selectedSkillPos < 0) {
-			selectedSkillPos += skillLength;
+		if (CheckIfHasSkill()) {
+			do {
+				selectedSkillPos -= 1;
+				if (selectedSkillPos < 0) {
+					selectedSkillPos += skillLength;
+				}
+				selectedSkill = skill [selectedSkillPos];
+			} while(selectedSkill == null);
 		}
-		selectedSkill = skill [selectedSkillPos];
 	}
 
 	//Used for checking the Skills at a given position and for checking the modifiers at a given position. 
@@ -76,9 +89,6 @@ public class SkillsManager {
 			if(skill[i] != null){
 				skill[i].skillCoolDown.CoolDown();
 			}
-		}
-		if (mainSkill != null) {
-			mainSkill.skillCoolDown.CoolDown ();
 		}
 	}
 }

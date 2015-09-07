@@ -3,7 +3,7 @@ using System.Collections;
 
 public class FireballObj : MonoBehaviour, ISkillObj {
 
-	private Vector3 StartLocation;
+	private Vector2 StartLocation;
 	private Vector2 Direction;
 	private float Speed;
 	private float MaxDistanceCovered;
@@ -24,7 +24,7 @@ public class FireballObj : MonoBehaviour, ISkillObj {
 	{
 		this.gameObject.transform.position = StartLocation;
 		Rigidbody2D rigidbody = this.gameObject.GetComponent<Rigidbody2D> ();
-		rigidbody.AddForce (Direction * Speed * 300);
+		rigidbody.velocity =  Direction * Speed;
 		distanceCovered = 0f;
 	}
 
@@ -41,7 +41,7 @@ public class FireballObj : MonoBehaviour, ISkillObj {
 	void Update () 
 	{
 		if (distanceCovered < MaxDistanceCovered) {
-			distanceCovered = distanceCovered + (StartLocation - this.gameObject.transform.position).magnitude;
+			distanceCovered = distanceCovered + (StartLocation - (Vector2)this.gameObject.transform.position).magnitude;
 			StartLocation = this.gameObject.transform.position;
 		} else {
 			Destroy(this.gameObject);

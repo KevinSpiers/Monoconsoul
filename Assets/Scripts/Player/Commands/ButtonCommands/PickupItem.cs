@@ -11,8 +11,17 @@ public class PickupItem : ICommand {
 	
 	public void KeyDown()
 	{
-		if (player.canPickUp) {
-			player.isPickingUp = true;
+		Collider2D[] objects = Physics2D.OverlapCircleAll ((Vector2)player.gameObject.transform.position - new Vector2 (0, .5f), 1f);
+		foreach (Collider2D obj in objects) {
+			if(obj.CompareTag("Drop"))
+			{
+				IPickUp item = obj.GetComponent<IPickUp>();
+				if(item != null)
+				{
+					item.AssignPickUp(player);
+					break;
+				}
+			}
 		}
 	}
 	
