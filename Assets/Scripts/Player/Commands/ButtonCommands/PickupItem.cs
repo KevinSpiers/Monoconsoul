@@ -12,18 +12,31 @@ public class PickupItem : ICommand {
 	public void KeyDown()
 	{
 		Collider2D[] objects = Physics2D.OverlapCircleAll ((Vector2)player.gameObject.transform.position - new Vector2 (0, .5f), 1f);
-		foreach (Collider2D obj in objects) {
+        Collider2D closestObj = null;
+        float shortestDist = 10.0f;
+        float distancePlayerToObj = shortestDist;
+
+        foreach (Collider2D obj in objects) {
 			if(obj.CompareTag("Drop"))
 			{
-				IPickUp item = obj.GetComponent<IPickUp>();
-				if(item != null)
-				{
-					item.AssignPickUp(player);
-					break;
+                IPickUp item = obj.GetComponent<IPickUp>();
+                if (item != null)
+                {
+                    distancePlayerToObj = Vector3.Distance(player.transform.position, obj.transform.position);
+                    if (distancePlayerToObj <= shortestDist)
+                    {
+                       closestObj = obj;
+                       shortestDist = distancePlayerToObj;
+                    }
 				}
 			}
 		}
-	}
+        if (closestObj != null)
+        {
+            IPickUp item = closestObj.GetComponent<IPickUp>();
+            item.AssignPickUp(player);
+        }
+    }
 	
 	public void KeyHeld()
 	{
