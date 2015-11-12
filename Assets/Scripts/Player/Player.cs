@@ -4,7 +4,6 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
 	public PlayerStats stats;
-	public IPlayerState playerState;
 	public SkillsManager skills;
 	public ItemsManager items;
 	IController controls;

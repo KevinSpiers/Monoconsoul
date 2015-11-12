@@ -23,4 +23,9 @@ public class Defend : ICommand {
 	{
 		//Do Nothing
 	}
+
+    public void KeyUp()
+    {
+
+    }
 }

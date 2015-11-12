@@ -21,4 +21,9 @@ public class OptionsMenu : ICommand {
 		GameObject optionsMenu = Game.GetOptionsMenu ();
 		optionsMenu.SetActive (!optionsMenu.activeSelf);
 	}
+
+    public void KeyUp()
+    {
+
+    }
 }

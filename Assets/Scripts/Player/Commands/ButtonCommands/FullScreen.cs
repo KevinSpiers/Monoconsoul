@@ -18,4 +18,9 @@ public class FullScreen : ICommand {
 	{
 		//Do Nothing
 	}
+
+    public void KeyUp()
+    {
+
+    }
 }

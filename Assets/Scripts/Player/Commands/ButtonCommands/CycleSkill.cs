@@ -20,4 +20,9 @@ public class CycleSkill : ICommand {
 	{
 		//Do Nothing
 	}
+
+    public void KeyUp()
+    {
+
+    }
 }

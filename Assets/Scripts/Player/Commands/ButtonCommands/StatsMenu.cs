@@ -20,4 +20,9 @@ public class StatsMenu : ICommand {
 		GameObject statsMenu = Game.GetStatsMenu ();
 		statsMenu.SetActive (!statsMenu.activeSelf);
 	}
+
+    public void KeyUp()
+    {
+
+    }
 }

@@ -11,9 +11,9 @@ public class PickupItem : ICommand {
 	
 	public void KeyDown()
 	{
-		Collider2D[] objects = Physics2D.OverlapCircleAll ((Vector2)player.gameObject.transform.position - new Vector2 (0, .5f), 1f);
+		Collider2D[] objects = Physics2D.OverlapCircleAll ((Vector2)player.gameObject.transform.position, 6f);
         Collider2D closestObj = null;
-        float shortestDist = 10.0f;
+        float shortestDist = 1000.0f;
         float distancePlayerToObj = shortestDist;
 
         foreach (Collider2D obj in objects) {
@@ -42,4 +42,9 @@ public class PickupItem : ICommand {
 	{
 		//Do Nothing
 	}
+
+    public void KeyUp()
+    {
+
+    }
 }

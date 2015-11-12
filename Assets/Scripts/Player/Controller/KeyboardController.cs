@@ -55,9 +55,32 @@ public class KeyboardController : IController {
 			{
 				Rigidbody2D rigidbody = player.GetComponent<Rigidbody2D>();
 				Vector2 velocity = rigidbody.velocity;
-				Vector2.SmoothDamp(velocity,Vector2.zero,ref velocity,3f);
-				rigidbody.velocity = velocity;
+                Vector2.SmoothDamp(velocity,Vector2.zero,ref velocity,3f);
+                float vx = 0;
+                if (velocity.x > 0){
+                    vx = Mathf.Floor(velocity.x);
+                }else{
+                    vx = Mathf.Ceil(velocity.x);
+                }
+
+                float vy = 0;
+                if (velocity.y > 0) {
+                    vy = Mathf.Floor(velocity.y);
+                }else{
+                    vy = Mathf.Ceil(velocity.y);
+                }
+                velocity = new Vector2(vx, vy);
+                rigidbody.velocity = velocity;
 			}
+            if(Input.GetKeyUp(key))
+            {
+                ICommand cmd = null;
+                controlList.TryGetValue(key, out cmd);
+                if (cmd != null)
+                {
+                    cmd.KeyUp();
+                }
+            }
 		}
 
 		foreach (string str in axisControlList.Keys) 

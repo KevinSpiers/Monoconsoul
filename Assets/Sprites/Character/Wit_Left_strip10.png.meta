@@ -1,17 +1,19 @@
 fileFormatVersion: 2
-guid: c855428641b0fcf4d888fff043d2a9d5
-timeCreated: 1445350663
+guid: eada158388ba62447875f481510dbc39
+timeCreated: 1446838025
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: wit_forwardWalk_0
-    21300002: wit_forwardWalk_1
-    21300004: wit_forwardWalk_2
-    21300006: wit_forwardWalk_3
-    21300008: wit_forwardWalk_4
-    21300010: wit_forwardWalk_5
-    21300012: wit_forwardWalk_6
-    21300014: wit_forwardWalk_7
+    21300000: Wit_Left_strip10_0
+    21300002: Wit_Left_strip10_1
+    21300004: Wit_Left_strip10_2
+    21300006: Wit_Left_strip10_3
+    21300008: Wit_Left_strip10_4
+    21300010: Wit_Left_strip10_5
+    21300012: Wit_Left_strip10_6
+    21300014: Wit_Left_strip10_7
+    21300016: Wit_Left_strip10_8
+    21300018: Wit_Left_strip10_9
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -38,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: 0
-    aniso: 16
+    aniso: -1
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -52,13 +54,13 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: wit_forwardWalk_0
+    - name: Wit_Left_strip10_0
       rect:
         serializedVersion: 2
         x: 0
@@ -68,7 +70,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: wit_forwardWalk_1
+    - name: Wit_Left_strip10_1
       rect:
         serializedVersion: 2
         x: 42
@@ -78,7 +80,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: wit_forwardWalk_2
+    - name: Wit_Left_strip10_2
       rect:
         serializedVersion: 2
         x: 84
@@ -88,7 +90,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: wit_forwardWalk_3
+    - name: Wit_Left_strip10_3
       rect:
         serializedVersion: 2
         x: 126
@@ -98,7 +100,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: wit_forwardWalk_4
+    - name: Wit_Left_strip10_4
       rect:
         serializedVersion: 2
         x: 168
@@ -108,7 +110,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: wit_forwardWalk_5
+    - name: Wit_Left_strip10_5
       rect:
         serializedVersion: 2
         x: 210
@@ -118,7 +120,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: wit_forwardWalk_6
+    - name: Wit_Left_strip10_6
       rect:
         serializedVersion: 2
         x: 252
@@ -128,10 +130,30 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: wit_forwardWalk_7
+    - name: Wit_Left_strip10_7
       rect:
         serializedVersion: 2
         x: 294
+        y: 0
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Wit_Left_strip10_8
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Wit_Left_strip10_9
+      rect:
+        serializedVersion: 2
+        x: 378
         y: 0
         width: 42
         height: 42

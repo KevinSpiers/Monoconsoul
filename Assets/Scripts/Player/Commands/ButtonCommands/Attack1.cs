@@ -23,4 +23,8 @@ public class Attack1 : ICommand {
 		}
 	}
 
+    public void KeyUp()
+    {
+
+    }
 }

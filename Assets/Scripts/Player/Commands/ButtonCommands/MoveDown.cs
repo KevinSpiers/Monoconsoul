@@ -4,21 +4,28 @@ using System.Collections;
 public class MoveDown : ICommand {
 	Player player;
 	Rigidbody2D rigidbody;
-	public MoveDown(Player _player)
+    Animator anim;
+    public MoveDown(Player _player)
 	{
 		player = _player;
 		rigidbody = player.GetComponent<Rigidbody2D> ();
-	}
+        anim = player.GetComponentInChildren<Animator>();
+    }
 
 	public void KeyDown()
 	{
-		//Do Nothing
-	}
+        anim.SetBool("Down", true);
+    }
 
 	public void KeyHeld()
 	{
 		if (!Game.GamePaused) {
-			rigidbody.velocity = new Vector2 (rigidbody.velocity.x, -Time.fixedDeltaTime * player.stats.MoveSpeed);
+			rigidbody.velocity = new Vector2 (rigidbody.velocity.x, -Time.fixedDeltaTime * 100.0f * player.stats.MoveSpeed);
 		}
 	}
+
+    public void KeyUp()
+    {
+        anim.SetBool("Down", false);
+    }
 }

@@ -18,4 +18,9 @@ public class PauseGame : ICommand {
 	{
 		Game.TogglePausedGame ();
 	}
+
+    public void KeyUp()
+    {
+
+    }
 }

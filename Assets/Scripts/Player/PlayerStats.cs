@@ -70,10 +70,10 @@ public class PlayerStats {
 	{
 		get
 		{
-			if(attkSpd+b_attkSpd > 0){
+			if(attkSpd+b_attkSpd > 75){
 				return attkSpd+b_attkSpd;
 			}else{
-				return 1;
+				return 75;
 			}
 		}
 	}
@@ -98,10 +98,10 @@ public class PlayerStats {
 	{
 		get
 		{
-			if(attkRange+b_attkRange > 5){
+			if(attkRange+b_attkRange > 125){
 				return attkRange+b_attkRange;
 			}else{
-				return 5;
+				return 125;
 			}
 		}
 	}
@@ -112,10 +112,10 @@ public class PlayerStats {
 	{
 		get
 		{
-			if(attkDmg+b_attkDmg > 0){
+			if(attkDmg+b_attkDmg > 10){
 				return attkDmg+b_attkDmg;
 			}else{
-				return 1;
+				return 10;
 			}
 		}
 	}
@@ -126,10 +126,10 @@ public class PlayerStats {
 	{
 		get
 		{
-			if(moveSpd+b_moveSpd > 200){
+			if(moveSpd+b_moveSpd > 30){
 				return moveSpd+b_moveSpd;
 			}else{
-				return 200;
+				return 30;
 			}
 		}
 	}
@@ -142,11 +142,11 @@ public class PlayerStats {
 		b_maxHp = 100;
 		hp = b_maxHp;
 		b_def = 3;
-		b_attkSpd = 3;
+		b_attkSpd = 75;
 		b_attkFreq = 1;
-		b_attkRange = 5;
+		b_attkRange = 125;
 		b_attkDmg = 1;
-		b_moveSpd = 200;
+		b_moveSpd = 30;
 
 		maxHp = 0;
 		def = 0;
