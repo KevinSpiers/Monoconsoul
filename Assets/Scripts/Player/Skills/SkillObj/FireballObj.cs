@@ -24,7 +24,7 @@ public class FireballObj : MonoBehaviour, ISkillObj {
 	{
 		this.gameObject.transform.position = StartLocation;
 		Rigidbody2D rigidbody = this.gameObject.GetComponent<Rigidbody2D> ();
-        rigidbody.transform.rotation = new Quaternion(Vector2.up.x - Direction.x, Vector2.up.y - Direction.y, 0f, 0f);
+        rigidbody.transform.rotation = new Quaternion(Vector2.up.x + Direction.x, Vector2.up.y + Direction.y, 0f, 0f);
         Debug.Log(rigidbody.transform.rotation);
 		rigidbody.velocity =  Direction * Speed;
 		distanceCovered = 0f;
