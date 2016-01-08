@@ -14,14 +14,18 @@ public class MoveDown : ICommand {
 
 	public void KeyDown()
 	{
-        anim.SetBool("Down", true);
+        if (!Game.GamePaused)
+        {
+            anim.SetBool("Down", true);
+        }
     }
 
 	public void KeyHeld()
 	{
 		if (!Game.GamePaused) {
 			rigidbody.velocity = new Vector2 (rigidbody.velocity.x, -Time.fixedDeltaTime * 100.0f * player.stats.MoveSpeed);
-		}
+            anim.SetBool("Down", true);
+        }
 	}
 
     public void KeyUp()

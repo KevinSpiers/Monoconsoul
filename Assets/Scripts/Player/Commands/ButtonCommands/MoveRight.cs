@@ -14,14 +14,18 @@ public class MoveRight : ICommand {
 
 	public void KeyDown()
 	{
-        anim.SetBool("Right", true);
+        if (!Game.GamePaused)
+        {
+            anim.SetBool("Right", true);
+        }
     }
 
 	public void KeyHeld()
 	{
 		if (!Game.GamePaused) {
 			rigidbody.velocity = new Vector2 (Time.fixedDeltaTime * 100.0f * player.stats.MoveSpeed, rigidbody.velocity.y);
-		}
+            anim.SetBool("Right", true);
+        }
 	}
 
     public void KeyUp()

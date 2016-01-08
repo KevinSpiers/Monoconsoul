@@ -126,10 +126,10 @@ public class PlayerStats {
 	{
 		get
 		{
-			if(moveSpd+b_moveSpd > 30){
+			if(moveSpd+b_moveSpd > 50){
 				return moveSpd+b_moveSpd;
 			}else{
-				return 30;
+				return 50;
 			}
 		}
 	}
@@ -146,7 +146,7 @@ public class PlayerStats {
 		b_attkFreq = 1;
 		b_attkRange = 125;
 		b_attkDmg = 1;
-		b_moveSpd = 30;
+		b_moveSpd = 0;
 
 		maxHp = 0;
 		def = 0;

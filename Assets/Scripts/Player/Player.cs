@@ -14,7 +14,9 @@ public class Player : MonoBehaviour {
 		items = new ItemsManager ();
 		skills = new SkillsManager ();
 		controls = new KeyboardController (this);
-	}
+
+        Application.runInBackground = true;
+    }
 
 	void Update () 
 	{

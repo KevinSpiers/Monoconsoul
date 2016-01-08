@@ -7,12 +7,12 @@ public class KeyboardController : IController {
 	private Dictionary<string,IACommand> axisControlList;
 	private Player player;
 
-	public KeyboardController(Player _player)
+    public KeyboardController(Player _player)
 	{
 		controlList = new Dictionary<KeyCode,ICommand> ();
 		player = _player;
 
-		controlList.Add (KeyCode.W, new MoveUp (_player));
+        controlList.Add (KeyCode.W, new MoveUp (_player));
 		controlList.Add (KeyCode.A, new MoveLeft (_player));
 		controlList.Add (KeyCode.S, new MoveDown (_player));
 		controlList.Add (KeyCode.D, new MoveRight (_player));
@@ -71,7 +71,7 @@ public class KeyboardController : IController {
                 }
                 velocity = new Vector2(vx, vy);
                 rigidbody.velocity = velocity;
-			}
+            }
             if(Input.GetKeyUp(key))
             {
                 ICommand cmd = null;
@@ -85,7 +85,7 @@ public class KeyboardController : IController {
 
 		foreach (string str in axisControlList.Keys) 
 		{
-			float num = Input.GetAxisRaw(str);
+            float num = Input.GetAxisRaw(str);
 			if(num > 0f){
 				IACommand cmd = null;
 				axisControlList.TryGetValue(str,out cmd);
