@@ -72,6 +72,53 @@ public class Grid : MonoBehaviour {
         return neighbors;
     }
 
+    public List<Node> GetDiagonalNeighbors(Node node)
+    {
+        List<Node> neighbors = new List<Node>();
+
+        for (int x = -1; x <= 1; x++)
+        {
+            for (int y = -1; y <= 1; y++)
+            {
+                if (x == 0 && y == 0)
+                    continue;
+                if (Mathf.Abs(x) == Mathf.Abs(y))
+                {
+                    int checkX = node.gridX + x;
+                    int checkY = node.gridY + y;
+
+                    if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY)
+                    {
+                        neighbors.Add(grid[checkX, checkY]);
+                    }
+                }
+            }
+        }
+        return neighbors;
+    }
+
+    public List<Node> GetFourDirectionNeighbors(Node node)
+    {
+        List<Node> neighbors = new List<Node>();
+
+        for (int x = -1; x <= 1; x++)
+        {
+            for (int y = -1; y <= 1; y++)
+            {
+                if (x == 0 && y == 0 && Mathf.Abs(x) == Mathf.Abs(y))
+                    continue;
+                int checkX = node.gridX + x;
+                int checkY = node.gridY + y;
+
+                if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY)
+                {
+                    neighbors.Add(grid[checkX, checkY]);
+                }
+            }
+        }
+        return neighbors;
+    }
+
     public Node NodeFromWorldPoint(Vector3 worldPosition)
     {
         float percentX = (worldPosition.x / gridWorldSize.x) + .5f;

@@ -28,7 +28,7 @@ public class PlayerStats {
 		}
 	}
 	private int hp;
-	public int Healh
+	public int Health
 	{
 		get
 		{
@@ -64,20 +64,6 @@ public class PlayerStats {
 		}
 	}
 
-	private float attkSpd;
-	private float b_attkSpd;
-	public float AttackSpeed
-	{
-		get
-		{
-			if(attkSpd+b_attkSpd > 75){
-				return attkSpd+b_attkSpd;
-			}else{
-				return 75;
-			}
-		}
-	}
-
 	private float attkFreq;
 	private float b_attkFreq;
 	public float AttackFrequency
@@ -88,20 +74,6 @@ public class PlayerStats {
 				return attkFreq+b_attkFreq;
 			}else{
 				return 1;
-			}
-		}
-	}
-
-	private float attkRange;
-	private float b_attkRange;
-	public float AttackRange
-	{
-		get
-		{
-			if(attkRange+b_attkRange > 125){
-				return attkRange+b_attkRange;
-			}else{
-				return 125;
 			}
 		}
 	}
@@ -134,6 +106,7 @@ public class PlayerStats {
 		}
 	}
 
+    HealthExpUpdate hpExpBarUpdate = new HealthExpUpdate();
 	public PlayerStats()
 	{
 		lvl = 1;
@@ -142,20 +115,18 @@ public class PlayerStats {
 		b_maxHp = 100;
 		hp = b_maxHp;
 		b_def = 3;
-		b_attkSpd = 75;
 		b_attkFreq = 1;
-		b_attkRange = 125;
 		b_attkDmg = 1;
 		b_moveSpd = 0;
 
 		maxHp = 0;
 		def = 0;
-		attkSpd = 0;
 		attkFreq = 0;
-		attkRange = 0;
 		attkDmg = 0;
 		moveSpd = 0;
 	}
+
+    //Experience
 
 	public void GainExperience(int _exp)
 	{
@@ -165,7 +136,10 @@ public class PlayerStats {
 			lvl += 1;
 			maxExp = (int)((100 * Mathf.Pow (1.22863f,lvl-1) + 100 + (lvl-1) * 257.9f)/2);
 		}
-	}
+        hpExpBarUpdate.UpdateExperienceBar();
+    }
+
+    //Health
 
 	public void GainHealth(int _heal)
 	{
@@ -174,7 +148,8 @@ public class PlayerStats {
 		} else {
 			hp += _heal;
 		}
-	}
+        hpExpBarUpdate.UpdateHealthBar();
+    }
 
 	public void LoseHealth(int _hurt)
 	{
@@ -183,35 +158,44 @@ public class PlayerStats {
 		} else {
 			hp -= _hurt;
 		}
-	}
+        hpExpBarUpdate.UpdateHealthBar();
+    }
+
+    //Max Health
 
 	public void GainBaseMaxHealth(int _maxHpGain)
 	{
 		float prop = hp / ((b_maxHp + maxHp) * 1.0f);
 		b_maxHp += _maxHpGain;
 		hp = (int)((b_maxHp + maxHp) * prop);
-	}
+        hpExpBarUpdate.UpdateHealthBar();
+    }
 
 	public void LoseBaseMaxHealth(int _maxHpLose)
 	{
 		float prop = hp / ((b_maxHp + maxHp) * 1.0f);
 		b_maxHp -= _maxHpLose;
 		hp = (int)((b_maxHp + maxHp) * prop);
-	}
+        hpExpBarUpdate.UpdateHealthBar();
+    }
 
 	public void GainMaxHealth(int _maxHpGain)
 	{
 		float prop = hp / ((b_maxHp + maxHp) * 1.0f);
 		maxHp += _maxHpGain;
 		hp = (int)((b_maxHp + maxHp) * prop);
-	}
+        hpExpBarUpdate.UpdateHealthBar();
+    }
 	
 	public void LoseMaxHealth(int _maxHpLose)
 	{
 		float prop = hp / ((b_maxHp + maxHp) * 1.0f);
 		maxHp -= _maxHpLose;
 		hp = (int)((b_maxHp + maxHp) * prop);
-	}
+        hpExpBarUpdate.UpdateHealthBar();
+    }
+
+    //Defence
 
 	public void GainBaseDefense(int _defGain)
 	{
@@ -237,37 +221,13 @@ public class PlayerStats {
 		def -= _defLose;
 	}
 
-	public void GainBaseAttackSpeed(int _attkSpdGain)
-	{
-		b_attkSpd += _attkSpdGain;
-	}
+	//Attack Frequency
 
-	public void LoseBaseAttackSpeed(int _attkSpdLose)
-	{
-		if (b_attkSpd - _attkSpdLose < 0) {
-			b_attkSpd = 0;
-		} else {
-			b_attkSpd -= _attkSpdLose;
-		}
-	}
-
-	public void GainAttackSpeed(int _attkSpdGain)
-	{
-		b_attkSpd += _attkSpdGain;
-	}
-	
-	public void LoseAttackSpeed(int _attkSpdLose)
-	{
-		b_attkSpd -= _attkSpdLose;
-	}
-
-	//Attack less often
 	public void GainBaseAttackFrequency(int _attkFreqGain)
 	{
 		b_attkFreq += _attkFreqGain;
 	}
 	
-	//Attack more often
 	public void LoseBaseAttackFrequency(int _attkFreqLose)
 	{
 		if (b_attkFreq - _attkFreqLose < 0) {
@@ -277,13 +237,11 @@ public class PlayerStats {
 		}
 	}
 	
-	//Attack less often
 	public void GainAttackFrequency(int _attkFreqGain)
 	{
 		attkFreq += _attkFreqGain;
 	}
 
-	//Attack more often
 	public void LoseAttackFrequency(int _attkFreqLose)
 	{
 		attkFreq -= _attkFreqLose;
@@ -312,6 +270,8 @@ public class PlayerStats {
 	{
 		attkDmg -= _attkDmgLose;
 	}
+
+    //Movement Speed
 
 	public void GainBaseMoveSpeed(int _moveSpdGain)
 	{

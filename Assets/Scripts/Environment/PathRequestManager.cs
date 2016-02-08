@@ -2,18 +2,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
-public class PathRequestManager : MonoBehaviour{
+public class PathRequestManager {
 
     Queue<PathRequest> PathRequestQueue = new Queue<PathRequest>();
     PathRequest currentPathRequest;
     Pathfinding pathfinding;
     bool isProcessingPath;
-    static PathRequestManager instance;
 
-    void Awake()
+
+    private static PathRequestManager instance = null;
+    private PathRequestManager(Pathfinding _pathfinding)
     {
-        instance = this;
-        pathfinding = GetComponent<Pathfinding>();
+        pathfinding = _pathfinding;
+    }
+
+    public static PathRequestManager getInstance(Pathfinding _pathfinding)
+    {
+        if (instance == null)
+        {
+            instance = new PathRequestManager(_pathfinding);
+        }
+
+        return instance;
     }
 
 	public static void RequestPath(Vector2 pathStart, Vector2 pathEnd, Action<Vector2[],bool> callback)

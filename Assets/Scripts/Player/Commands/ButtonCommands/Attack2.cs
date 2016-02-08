@@ -3,15 +3,17 @@ using System.Collections;
 using UnityEngine.EventSystems;
 public class Attack2 : ICommand {
 	Player player;
-	public Attack2(Player _player)
+    Animator anim;
+    public Attack2(Player _player)
 	{
 		player = _player;
-	}
+        anim = player.GetComponentInChildren<Animator>();
+    }
 
 	public void KeyDown()
 	{
-		//Do Nothing
-	}
+        
+    }
 
 	public void KeyHeld()
 	{

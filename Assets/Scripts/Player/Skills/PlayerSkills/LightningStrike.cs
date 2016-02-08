@@ -41,7 +41,7 @@ public class LightningStrike : MonoBehaviour {
 			mouseScreenDif = Vector2.up;
 		}
 		Vector2 startLocation = player.gameObject.transform.position + (Vector3)mouseScreenDif*.5f;
-		bulletScript.Make(startLocation,mouseScreenDif,player.stats.AttackSpeed,player.stats.AttackRange,player.stats.AttackDamage);
+		bulletScript.Make(startLocation,mouseScreenDif,100,150,player.stats.AttackDamage);
 	}
 	
 	

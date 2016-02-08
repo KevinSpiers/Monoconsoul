@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Unit))]
 public class Enemy : MonoBehaviour {
 
     Unit unit;
     bool hasTarget;
     float refreshRate = 0.5f;
     Transform target;
+    int time = 0;
 
     void Awake()
     {
-        unit = GetComponent<Unit>();
         if (GameObject.FindGameObjectWithTag("Player").transform)
         {
             hasTarget = true;
@@ -20,15 +21,17 @@ public class Enemy : MonoBehaviour {
 
     void Start()
     {
-        StartCoroutine(updatePath());
+        unit = this.gameObject.GetComponent<Unit>();
+        StartCoroutine(StartFollowPath());
     }
 
-    IEnumerator updatePath()
+    public IEnumerator StartFollowPath()
     {
         while (hasTarget)
         {
             unit.StartPathing(target);
-            yield return new WaitForSeconds(refreshRate);
+            yield return new WaitForSeconds(refreshRate); 
         }
     }
+   
 }
