@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 public class Node : IHeapItem<Node>{
     public bool walkable;
     public Vector3 worldPosition;
@@ -11,15 +11,42 @@ public class Node : IHeapItem<Node>{
     public int hCost;
     public Node parent;
     int _heapIndex;
+    private List<Node> list;
+    private int waypoint;
 
-    public Node(bool _walkable, Vector3 _worldPos, int _gridX, int _gridY)
+    public Node(bool _walkable, int _waypoint, Vector3 _worldPos, int _gridX, int _gridY, List<Node> _list)
     {
         walkable = _walkable;
         worldPosition = _worldPos;
         gridX = _gridX;
         gridY = _gridY;
+        list = _list;
     }
-	
+
+    public int Waypoint
+    {
+        get
+        {
+            return waypoint;
+        }
+        set
+        {
+            waypoint = value;
+        }
+    }
+
+    public List<Node> List
+    {
+        get
+        {
+            return list;
+        }
+        set
+        {
+            list = value;
+        }
+    }
+
     public int fCost
     {
         get

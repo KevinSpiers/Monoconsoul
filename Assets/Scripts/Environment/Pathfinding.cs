@@ -17,6 +17,7 @@ public class Pathfinding : MonoBehaviour {
     {
         StartCoroutine(FindPath(startPos, targetPos));
     }
+
 	IEnumerator FindPath(Vector2 _startPos, Vector2 _targetPos)
     {
         Vector2[] waypoints = new Vector2[0];
